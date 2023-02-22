@@ -89,11 +89,10 @@ func newLayers(paths types.Paths, tarDirectory string, maxLayers int) (layers []
 			DiffIDs:   digest.String(),
 			Size:      size,
 			Paths:     layerPaths,
-			MediaType: v1.MediaTypeImageLayer,
+			MediaType: v1.MediaTypeImageLayerGzip,
 		}
 		if tarDirectory != "" {
-			// TODO: we should use v1.MediaTypeImageLayerGzip instead
-			layer.MediaType = v1.MediaTypeImageLayer
+			layer.MediaType = v1.MediaTypeImageLayerGzip
 			layer.LayerPath = layerPath
 		}
 
